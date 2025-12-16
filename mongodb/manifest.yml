@@ -49,9 +49,13 @@ spec:
     component: mongodb
     tier: database  
   ports:
-    protocal: TCP
-    port: 27017 # this is service port
-    targetPort: 27017 # this container port 
+    - protocol: TCP
+      port: 27017 # this is service port
+      targetPort: 27017 # this container port 
+
+
+
+
  
 
 
