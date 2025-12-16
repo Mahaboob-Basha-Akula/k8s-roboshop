@@ -26,7 +26,7 @@ spec:
         image: basha831750/catalogue:v1
         ports:
         - name: liveness-port
-          continerPort: 8080
+          containerPort: 8080
         readinessProbe:
           httpGet:
             path: /health
