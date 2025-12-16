@@ -1,13 +1,13 @@
 apiVersion: v1
 kind : Pod
 metadata:
-  name: Debug
+  name: debug
   namespace: roboshop
   labels:
     project: roboshop
-    name: Debug
+    name: debug
 spec:
   containers:
-  - name: Debug
+  - name: debug
     image: basha831750/debug:v1
  
