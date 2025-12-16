@@ -7,7 +7,7 @@ metadata:
     project: roboshop
     name: Debug
 spec:
-- containers:
-    name: Debug
+  containers:
+  - name: Debug
     image: basha831750/debug:v1
  
