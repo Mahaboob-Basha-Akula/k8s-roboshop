@@ -61,14 +61,14 @@ spec:
             path: /
             port: 80
           failureThreshold: 1
-          periodSeconds: 10
+          periodSeconds: 30
 
         livenessProbe:
           httpGet:
             path: /
             port: 80
           failureThreshold: 1
-          periodSeconds: 10
+          periodSeconds: 30
 
 ---
 
