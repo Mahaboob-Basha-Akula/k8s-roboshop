@@ -47,17 +47,16 @@ spec:
           containerPort: 8080
         readinessProbe:
           httpGet:
-            port: 8080
             path: /health
+            port: 8080
             failureThreshold: 1
             periodSeconds: 10
         livenessProbe:
           httpGet:
-            port: 8080
             path: /health
+            port: 8080
             failureThreshold: 1
             periodSeconds: 25
-          
 ---
 
 apiVersion: v1
