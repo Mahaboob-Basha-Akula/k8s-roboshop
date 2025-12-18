@@ -49,9 +49,9 @@ spec:
     component: rabbitmq
     tier: database
   ports:
-    - protocol: TCP
-      port: 5672
-      containerPort: 5672
+     - protocol: TCP
+       port: 5672
+       containerPort: 5672
 
 
 
