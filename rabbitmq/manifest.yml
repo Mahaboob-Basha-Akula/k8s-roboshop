@@ -27,12 +27,12 @@ spec:
         imagePullPolicy: Always
         readinessProbe:
           tcpSocket:
-            port: 6379
+            port: 5672
           initialDelaySeconds: 10
           periodSeconds: 10
         livenessProbe:
           tcpSocket:
-            port: 6379
+            port: 5672
           initialDelaySeconds: 10
           periodSeconds: 20
 
@@ -50,8 +50,8 @@ spec:
     tier: database
   ports:
     - protocol: TCP
-      port:
-      containerPort:
+      port: 5672
+      containerPort: 5672
 
 
 
