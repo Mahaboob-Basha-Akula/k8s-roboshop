@@ -7,35 +7,35 @@ metadata:
     project: roboshop
     component: redis
     tier: database
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop
+      component: redis
+      tier: database
+  template:
+    metadata:
+      labels:
         project: roboshop
         component: redis
         tier: database
-    template:
-      metadata:
-        labels:
-          project: roboshop
-          component: redis
-          tier: database
-      spec:
-        containers:
-        - name: redis
-          image: redis:7.0
-          imagePullPolicy: Always
-          readinessProbe:
-            tcpSocket:
-              port: 6379
-            initialDelaySeconds: 10
-            periodSeconds: 10
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.0
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 6379
+          initialDelaySeconds: 10
+          periodSeconds: 10
 
-          livenessProbe:
-            tcpSocket:
-              port: 6379
-            initialDelaySeconds: 5
-            periodSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 6379
+          initialDelaySeconds: 5
+          periodSeconds: 5
 
 ---
 apiVersion: v1
