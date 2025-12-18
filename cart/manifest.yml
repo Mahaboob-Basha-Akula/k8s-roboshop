@@ -12,7 +12,7 @@ data:
 
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: cart
   namespace: roboshop
   labels:
@@ -28,9 +28,10 @@ spec:
       tier: backend
   template:
     metadata:
-      project: roboshop
-      component: cart
-      tier: backend
+      labels:
+        project: roboshop
+        component: cart
+        tier: backend
     spec:
       containers:
       - name: cart
