@@ -41,9 +41,9 @@ spec:
         - configMapRef:
             name: cart-config
         ports:
-        - name: livenessProbe
+        - name: liveness-port
           containerPort: 8080
-        - name: readinessProbe
+        - name: readiness-port
           containerPort: 8080
         readinessProbe:
           httpGet:
