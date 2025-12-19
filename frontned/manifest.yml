@@ -53,9 +53,9 @@ spec:
         #     name: frontend
         ports:
         - name: liveness-port
-          containerPort: 80
-        # - name: readiness-port
-        #   containerPort: 8080
+          containerPort: 8080
+        - name: readiness-port
+          containerPort: 8080
         readinessProbe:
           httpGet:
             path: /
