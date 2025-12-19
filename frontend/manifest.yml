@@ -33,7 +33,7 @@ spec:
             path: /
             port: 8080
           failureThreshold: 1
-          periodSeconds: 15
+          periodSeconds: 25
         livenessProbe:
           httpGet:
             path: /
