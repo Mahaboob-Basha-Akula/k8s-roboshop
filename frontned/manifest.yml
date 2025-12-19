@@ -68,7 +68,7 @@ spec:
             path: /
             port: liveness-port
           failureThreshold: 1
-          periodSeconds: 30
+          periodSeconds: 20
 
 ---
 
