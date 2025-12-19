@@ -31,13 +31,13 @@ spec:
         readinessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: liveness-port
           failureThreshold: 1
           periodSeconds: 25
         livenessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: liveness-port
           failureThreshold: 1
           periodSeconds: 15
 ---
