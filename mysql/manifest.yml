@@ -4,9 +4,9 @@ metadata:
   name: mysql-conf
   namespace: roboshop
 data: 
-  my.cnf:
-    [mysqlid]
-    innodb_redo_log_capacity = 2G
+  # my.cnf:
+  #   [mysqlid]
+  #   innodb_redo_log_capacity = 2G
 
 ---
 apiVersion: apps/v1
