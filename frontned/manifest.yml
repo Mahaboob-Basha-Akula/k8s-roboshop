@@ -21,11 +21,65 @@
 
 
 ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: frontend
+#   namespace: roboshop
+#   labels:
+#     project: roboshop
+#     component: frontend
+#     tier: frontend
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       project: roboshop
+#       component: frontend
+#       tier: frontend
+#   template:
+#     metadata:
+#       labels:
+#         project: roboshop
+#         component: frontend
+#         tier: frontend
+#     spec:
+#       containers:
+#       - name: frontend
+#         image: basha831750/frontend:v1
+#         imagePullPolicy: Always
+#         # envFrom:
+#         # - configMapRef:
+#         #     name: frontend
+#         ports:
+#         - name: liveness-port
+#           containerPort: 8080
+#         # - name: readiness-port
+#         #   containerPort: 8080
+#         readinessProbe:
+#           httpGet:
+#             path: /
+#             port: 8080
+#           failureThreshold: 3
+#           periodSeconds: 10
+#           initialDelaySeconds: 10
+
+#         livenessProbe:
+#           httpGet:
+#             path: /
+#             port: 8080
+#           failureThreshold: 1
+#           initialDelaySeconds: 20
+#           periodSeconds: 15
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
   namespace: roboshop
+  # these are replica set labels
   labels:
     project: roboshop
     component: frontend
@@ -33,10 +87,12 @@ metadata:
 spec:
   replicas: 1
   selector:
+    # these labels are used to select pods
     matchLabels:
       project: roboshop
       component: frontend
       tier: frontend
+  # pod definition
   template:
     metadata:
       labels:
@@ -46,34 +102,32 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: basha831750/frontend:v1
+        image: joindevops/frontend:v1
         imagePullPolicy: Always
-        # envFrom:
-        # - configMapRef:
-        #     name: frontend
         ports:
         - name: liveness-port
           containerPort: 8080
-        # - name: readiness-port
-        #   containerPort: 8080
         readinessProbe:
           httpGet:
             path: /
-            port: 8080
-          failureThreshold: 3
-          periodSeconds: 10
-          initialDelaySeconds: 10
-
+            port: liveness-port
+          failureThreshold: 1
+          periodSeconds: 15
         livenessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: liveness-port
           failureThreshold: 1
-          initialDelaySeconds: 20
           periodSeconds: 15
-
+      #   volumeMounts:
+      #   - name: nginx-config
+      #     mountPath: /etc/nginx/nginx.conf
+      #     subPath: nginx.conf
+      # volumes:
+      # - name: nginx-config
+      #   configMap:
+      #     name: frontend
 ---
-
 
 
 
